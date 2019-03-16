@@ -7,12 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13814AAB223C62CF00238BF1 /* ReceiptSummaryFetches.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13814AAA223C62CF00238BF1 /* ReceiptSummaryFetches.swift */; };
+		13814AAD223C701200238BF1 /* ReceiptsTableViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13814AAC223C701200238BF1 /* ReceiptsTableViewControllerExtensions.swift */; };
 		13BDFA67223B5E4D004CC51B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BDFA66223B5E4D004CC51B /* AppDelegate.swift */; };
-		13BDFA69223B5E4D004CC51B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BDFA68223B5E4D004CC51B /* ViewController.swift */; };
 		13BDFA6C223B5E4D004CC51B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13BDFA6A223B5E4D004CC51B /* Main.storyboard */; };
 		13BDFA6E223B5E50004CC51B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13BDFA6D223B5E50004CC51B /* Assets.xcassets */; };
 		13BDFA71223B5E50004CC51B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13BDFA6F223B5E50004CC51B /* LaunchScreen.storyboard */; };
 		13BDFA7C223B5E50004CC51B /* Receipt_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BDFA7B223B5E50004CC51B /* Receipt_TrackerTests.swift */; };
+		13BDFA8D223B6275004CC51B /* ReceiptTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BDFA8C223B6275004CC51B /* ReceiptTableViewCell.swift */; };
+		13BDFA8F223B6FFF004CC51B /* ReceiptsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BDFA8E223B6FFF004CC51B /* ReceiptsTableViewController.swift */; };
+		13BDFA91223BFA98004CC51B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BDFA90223BFA97004CC51B /* Item.swift */; };
+		13BDFA93223BFDB7004CC51B /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BDFA92223BFDB7004CC51B /* Receipt.swift */; };
+		13BDFA95223C03C0004CC51B /* ReceiptSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BDFA94223C03C0004CC51B /* ReceiptSummary.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,9 +32,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		13814AAA223C62CF00238BF1 /* ReceiptSummaryFetches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptSummaryFetches.swift; sourceTree = "<group>"; };
+		13814AAC223C701200238BF1 /* ReceiptsTableViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptsTableViewControllerExtensions.swift; sourceTree = "<group>"; };
 		13BDFA63223B5E4D004CC51B /* Receipt Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Receipt Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13BDFA66223B5E4D004CC51B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		13BDFA68223B5E4D004CC51B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		13BDFA6B223B5E4D004CC51B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		13BDFA6D223B5E50004CC51B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		13BDFA70223B5E50004CC51B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +43,11 @@
 		13BDFA77223B5E50004CC51B /* Receipt TrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Receipt TrackerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13BDFA7B223B5E50004CC51B /* Receipt_TrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Receipt_TrackerTests.swift; sourceTree = "<group>"; };
 		13BDFA7D223B5E50004CC51B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13BDFA8C223B6275004CC51B /* ReceiptTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptTableViewCell.swift; sourceTree = "<group>"; };
+		13BDFA8E223B6FFF004CC51B /* ReceiptsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptsTableViewController.swift; sourceTree = "<group>"; };
+		13BDFA90223BFA97004CC51B /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		13BDFA92223BFDB7004CC51B /* Receipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
+		13BDFA94223C03C0004CC51B /* ReceiptSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptSummary.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,8 +90,14 @@
 			isa = PBXGroup;
 			children = (
 				13BDFA66223B5E4D004CC51B /* AppDelegate.swift */,
-				13BDFA68223B5E4D004CC51B /* ViewController.swift */,
+				13BDFA8E223B6FFF004CC51B /* ReceiptsTableViewController.swift */,
+				13BDFA8C223B6275004CC51B /* ReceiptTableViewCell.swift */,
 				13BDFA6A223B5E4D004CC51B /* Main.storyboard */,
+				13814AAC223C701200238BF1 /* ReceiptsTableViewControllerExtensions.swift */,
+				13814AAA223C62CF00238BF1 /* ReceiptSummaryFetches.swift */,
+				13BDFA90223BFA97004CC51B /* Item.swift */,
+				13BDFA92223BFDB7004CC51B /* Receipt.swift */,
+				13BDFA94223C03C0004CC51B /* ReceiptSummary.swift */,
 				13BDFA6D223B5E50004CC51B /* Assets.xcassets */,
 				13BDFA6F223B5E50004CC51B /* LaunchScreen.storyboard */,
 				13BDFA72223B5E50004CC51B /* Info.plist */,
@@ -197,8 +215,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13BDFA69223B5E4D004CC51B /* ViewController.swift in Sources */,
+				13BDFA93223BFDB7004CC51B /* Receipt.swift in Sources */,
+				13BDFA91223BFA98004CC51B /* Item.swift in Sources */,
+				13814AAD223C701200238BF1 /* ReceiptsTableViewControllerExtensions.swift in Sources */,
+				13814AAB223C62CF00238BF1 /* ReceiptSummaryFetches.swift in Sources */,
+				13BDFA8D223B6275004CC51B /* ReceiptTableViewCell.swift in Sources */,
+				13BDFA95223C03C0004CC51B /* ReceiptSummary.swift in Sources */,
 				13BDFA67223B5E4D004CC51B /* AppDelegate.swift in Sources */,
+				13BDFA8F223B6FFF004CC51B /* ReceiptsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

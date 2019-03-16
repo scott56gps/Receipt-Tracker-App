@@ -1,24 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i5d-Yt-rQq">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Receipts Table View Controller-->
+        <scene sceneID="0fK-JX-GKu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <tableViewController id="i5d-Yt-rQq" customClass="ReceiptsTableViewController" customModule="Receipt_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="pkX-2q-Pw5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReceiptTableViewCell" rowHeight="120" id="hSF-N0-bTK" customClass="ReceiptTableViewCell" customModule="Receipt_Tracker" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="120"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hSF-N0-bTK" id="leG-ck-SiJ">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="aUy-sh-8Gk">
+                                            <rect key="frame" x="0.0" y="0.0" width="305" height="119.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4VY-10-GUe">
+                                                    <rect key="frame" x="0.0" y="0.0" width="305" height="99"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Izo-BD-dC8">
+                                                    <rect key="frame" x="0.0" y="99" width="305" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="Izo-BD-dC8" secondAttribute="bottom" id="M2F-nu-HHd"/>
+                                                <constraint firstItem="Izo-BD-dC8" firstAttribute="leading" secondItem="aUy-sh-8Gk" secondAttribute="leading" id="NPa-dZ-TAl"/>
+                                                <constraint firstAttribute="trailing" secondItem="4VY-10-GUe" secondAttribute="trailing" id="Za2-wh-DBT"/>
+                                                <constraint firstItem="4VY-10-GUe" firstAttribute="top" secondItem="aUy-sh-8Gk" secondAttribute="top" id="bjh-Y2-bLu"/>
+                                                <constraint firstItem="Izo-BD-dC8" firstAttribute="top" secondItem="4VY-10-GUe" secondAttribute="bottom" id="nej-IA-2zQ"/>
+                                                <constraint firstItem="Izo-BD-dC8" firstAttribute="top" secondItem="4VY-10-GUe" secondAttribute="bottom" id="rBI-Ml-bol"/>
+                                                <constraint firstAttribute="trailing" secondItem="Izo-BD-dC8" secondAttribute="trailing" id="uuB-UR-g4j"/>
+                                                <constraint firstItem="4VY-10-GUe" firstAttribute="leading" secondItem="aUy-sh-8Gk" secondAttribute="leading" id="xtS-Dk-eTC"/>
+                                            </constraints>
+                                        </stackView>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Total" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9WX-NZ-ERP">
+                                            <rect key="frame" x="305" y="0.0" width="70" height="119.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="70" id="wIn-ki-0sH"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="9WX-NZ-ERP" secondAttribute="bottom" id="BjO-bg-bn3"/>
+                                        <constraint firstItem="9WX-NZ-ERP" firstAttribute="leading" secondItem="aUy-sh-8Gk" secondAttribute="trailing" id="Kaq-Lh-1fU"/>
+                                        <constraint firstItem="aUy-sh-8Gk" firstAttribute="leading" secondItem="leG-ck-SiJ" secondAttribute="leading" id="Keu-6B-9yM"/>
+                                        <constraint firstAttribute="trailing" secondItem="9WX-NZ-ERP" secondAttribute="trailing" id="OgW-cH-3bD"/>
+                                        <constraint firstItem="aUy-sh-8Gk" firstAttribute="top" secondItem="leG-ck-SiJ" secondAttribute="top" id="SGw-wT-Ar8"/>
+                                        <constraint firstItem="9WX-NZ-ERP" firstAttribute="top" secondItem="leG-ck-SiJ" secondAttribute="top" id="TvR-6f-EK6"/>
+                                        <constraint firstAttribute="bottom" secondItem="aUy-sh-8Gk" secondAttribute="bottom" id="sY0-Cg-pur"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="date" destination="Izo-BD-dC8" id="nRd-TE-Iog"/>
+                                    <outlet property="name" destination="4VY-10-GUe" id="PSp-xp-04N"/>
+                                    <outlet property="total" destination="9WX-NZ-ERP" id="LsG-hx-alX"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="i5d-Yt-rQq" id="3Tm-ql-dM4"/>
+                            <outlet property="delegate" destination="i5d-Yt-rQq" id="46C-0S-A0K"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Afz-6L-goL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="189.59999999999999" y="152.47376311844079"/>
         </scene>
     </scenes>
 </document>
