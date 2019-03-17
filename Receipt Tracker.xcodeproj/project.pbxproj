@@ -19,6 +19,8 @@
 		13BDFA91223BFA98004CC51B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BDFA90223BFA97004CC51B /* Item.swift */; };
 		13BDFA93223BFDB7004CC51B /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BDFA92223BFDB7004CC51B /* Receipt.swift */; };
 		13BDFA95223C03C0004CC51B /* ReceiptSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BDFA94223C03C0004CC51B /* ReceiptSummary.swift */; };
+		72E4952A1E8436BC6E106996 /* Pods_Receipt_TrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAD15099C58633C6AC9F152F /* Pods_Receipt_TrackerTests.framework */; };
+		C81BAEB2879BFDDBDE736E6A /* Pods_Receipt_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52193EB83E531D67894C22A /* Pods_Receipt_Tracker.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,12 @@
 		13BDFA90223BFA97004CC51B /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		13BDFA92223BFDB7004CC51B /* Receipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
 		13BDFA94223C03C0004CC51B /* ReceiptSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptSummary.swift; sourceTree = "<group>"; };
+		2F372030001F761F5866D19C /* Pods-Receipt Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Receipt Tracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Receipt Tracker/Pods-Receipt Tracker.debug.xcconfig"; sourceTree = "<group>"; };
+		77522AC33C17FB0D2C776021 /* Pods-Receipt Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Receipt Tracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-Receipt Tracker/Pods-Receipt Tracker.release.xcconfig"; sourceTree = "<group>"; };
+		7F21690FAEC6A327E08BACCC /* Pods-Receipt TrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Receipt TrackerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Receipt TrackerTests/Pods-Receipt TrackerTests.release.xcconfig"; sourceTree = "<group>"; };
+		A52193EB83E531D67894C22A /* Pods_Receipt_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Receipt_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A62C23D0EC3CA9AF7CDF0129 /* Pods-Receipt TrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Receipt TrackerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Receipt TrackerTests/Pods-Receipt TrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BAD15099C58633C6AC9F152F /* Pods_Receipt_TrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Receipt_TrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C81BAEB2879BFDDBDE736E6A /* Pods_Receipt_Tracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72E4952A1E8436BC6E106996 /* Pods_Receipt_TrackerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +84,8 @@
 				13BDFA65223B5E4D004CC51B /* Receipt Tracker */,
 				13BDFA7A223B5E50004CC51B /* Receipt TrackerTests */,
 				13BDFA64223B5E4D004CC51B /* Products */,
+				ED1ED94C6D16BF9C8D206977 /* Pods */,
+				C6EBE26E7AEC884DE8E4FE50 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -114,6 +126,26 @@
 			path = "Receipt TrackerTests";
 			sourceTree = "<group>";
 		};
+		C6EBE26E7AEC884DE8E4FE50 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A52193EB83E531D67894C22A /* Pods_Receipt_Tracker.framework */,
+				BAD15099C58633C6AC9F152F /* Pods_Receipt_TrackerTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ED1ED94C6D16BF9C8D206977 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2F372030001F761F5866D19C /* Pods-Receipt Tracker.debug.xcconfig */,
+				77522AC33C17FB0D2C776021 /* Pods-Receipt Tracker.release.xcconfig */,
+				A62C23D0EC3CA9AF7CDF0129 /* Pods-Receipt TrackerTests.debug.xcconfig */,
+				7F21690FAEC6A327E08BACCC /* Pods-Receipt TrackerTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -121,9 +153,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13BDFA80223B5E50004CC51B /* Build configuration list for PBXNativeTarget "Receipt Tracker" */;
 			buildPhases = (
+				8450E6D38958D6696E1A74A6 /* [CP] Check Pods Manifest.lock */,
 				13BDFA5F223B5E4C004CC51B /* Sources */,
 				13BDFA60223B5E4C004CC51B /* Frameworks */,
 				13BDFA61223B5E4C004CC51B /* Resources */,
+				6BB479C7C57ED5887B22A001 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -138,6 +172,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13BDFA83223B5E50004CC51B /* Build configuration list for PBXNativeTarget "Receipt TrackerTests" */;
 			buildPhases = (
+				59E0D3E66FD66C7D91038ADD /* [CP] Check Pods Manifest.lock */,
 				13BDFA73223B5E50004CC51B /* Sources */,
 				13BDFA74223B5E50004CC51B /* Frameworks */,
 				13BDFA75223B5E50004CC51B /* Resources */,
@@ -209,6 +244,75 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		59E0D3E66FD66C7D91038ADD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Receipt TrackerTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6BB479C7C57ED5887B22A001 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Receipt Tracker/Pods-Receipt Tracker-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Receipt Tracker/Pods-Receipt Tracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8450E6D38958D6696E1A74A6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Receipt Tracker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		13BDFA5F223B5E4C004CC51B /* Sources */ = {
@@ -382,6 +486,7 @@
 		};
 		13BDFA81223B5E50004CC51B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F372030001F761F5866D19C /* Pods-Receipt Tracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -400,6 +505,7 @@
 		};
 		13BDFA82223B5E50004CC51B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77522AC33C17FB0D2C776021 /* Pods-Receipt Tracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -418,6 +524,7 @@
 		};
 		13BDFA84223B5E50004CC51B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A62C23D0EC3CA9AF7CDF0129 /* Pods-Receipt TrackerTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -439,6 +546,7 @@
 		};
 		13BDFA85223B5E50004CC51B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F21690FAEC6A327E08BACCC /* Pods-Receipt TrackerTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

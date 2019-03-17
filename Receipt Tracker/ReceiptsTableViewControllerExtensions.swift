@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Alamofire
 
 extension ReceiptsTableViewController {
     // MARK: - TableViewDataSource delegate methods
@@ -43,6 +44,7 @@ extension ReceiptsTableViewController: ReceiptSummaryFetches {
     
     // MARK: ReceiptSummaryFetches delegate methods
     func fetchReceiptSummaries() -> [ReceiptSummary] {
+        fetchReceipts()
         return loadSampleReceiptSummaries()
     }
     
@@ -61,5 +63,15 @@ extension ReceiptsTableViewController: ReceiptSummaryFetches {
         
         // Add summaries to the receiptSummaries Array
         return [summary1, summary2, summary3]
+    }
+    
+    private func fetchReceipts() {
+        Alamofire.request("https://cs313-receipt-tracker.herokuapp.com/receipts").responseJSON { response in
+            print("Result: \(response.result)")
+            
+            if let json = response.result.value {
+                print("JSON: \(json)")
+            }
+        }
     }
 }
