@@ -9,5 +9,5 @@
 import Foundation
 
 protocol ReceiptSummaryFetches: AnyObject {
-    func fetchReceiptSummaries() -> [ReceiptSummary]
+    func fetchReceiptSummaries() -> Void
 }

@@ -12,11 +12,12 @@ class ReceiptsTableViewController: UITableViewController {
     
     // MARK: Properties
     var receiptSummaries = [ReceiptSummary]()
+    @IBOutlet var receiptsTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        receiptSummaries = fetchReceiptSummaries()
+        fetchReceiptSummaries()
     }
 
 }

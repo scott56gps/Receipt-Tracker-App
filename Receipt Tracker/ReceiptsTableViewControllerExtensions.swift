@@ -43,21 +43,23 @@ extension ReceiptsTableViewController {
 extension ReceiptsTableViewController: ReceiptSummaryFetches {
     
     // MARK: ReceiptSummaryFetches delegate methods
-    func fetchReceiptSummaries() -> [ReceiptSummary] {
-        fetchReceipts()
-        return loadSampleReceiptSummaries()
+    func fetchReceiptSummaries() -> Void {
+        getReceiptSummaries() { (fetchedReceiptSummaries) -> Void in
+            self.receiptSummaries = fetchedReceiptSummaries
+            self.receiptsTableView.reloadData()
+        }
     }
     
     // MARK: Private Methods
     private func loadSampleReceiptSummaries() -> [ReceiptSummary] {
         // Create Receipt Summary Objects
-        guard let summary1 = ReceiptSummary(vendorName: "Walmart", date: "01/26/19", total: 25.32) else {
+        guard let summary1 = ReceiptSummary(id: 1, vendorName: "Walmart", date: "01/26/19", total: "25.32") else {
             fatalError("Unable to instatiate summary1")
         }
-        guard let summary2 = ReceiptSummary(vendorName: "Winco", date: "01/12/19", total: 132.23) else {
+        guard let summary2 = ReceiptSummary(id: 2, vendorName: "Winco", date: "01/12/19", total: "132.23") else {
             fatalError("Unable to instatiate summary2")
         }
-        guard let summary3 = ReceiptSummary(vendorName: "Walmart", date: "01/13/19", total: 20.12) else {
+        guard let summary3 = ReceiptSummary(id: 3, vendorName: "Walmart", date: "01/13/19", total: "20.12") else {
             fatalError("Unable to instatiate summary3")
         }
         
@@ -65,13 +67,35 @@ extension ReceiptsTableViewController: ReceiptSummaryFetches {
         return [summary1, summary2, summary3]
     }
     
-    private func fetchReceipts() {
+    private func requestReceiptSummaries(_ callback: @escaping ([Dictionary<String, Any>]) -> Void) {
         Alamofire.request("https://cs313-receipt-tracker.herokuapp.com/receipts").responseJSON { response in
             print("Result: \(response.result)")
             
             if let json = response.result.value {
                 print("JSON: \(json)")
+                
+                let receiptDictionaries = json as! [Dictionary<String, Any>]
+                
+                callback(receiptDictionaries)
             }
+        }
+    }
+    
+    private func getReceiptSummaries(_ callback: @escaping ([ReceiptSummary]) -> Void) -> Void {
+        // Get the ReceiptSummaries
+        var fetchedReceiptSummaries = [ReceiptSummary]()
+        requestReceiptSummaries() { (receiptDictionaries) -> Void in
+            // Create Summary Objects from the retured Receipts
+            for receiptDictionary in receiptDictionaries {
+                guard let receiptSummary = ReceiptSummary(receiptDictionary: receiptDictionary) else {
+                    print ("Did not instantiate ReceiptSummary for dictionary: \(receiptDictionary)")
+                    continue
+                }
+                
+                fetchedReceiptSummaries.append(receiptSummary)
+            }
+            
+            callback(fetchedReceiptSummaries)
         }
     }
 }
