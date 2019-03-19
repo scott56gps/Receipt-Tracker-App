@@ -10,18 +10,18 @@ import Foundation
 import UIKit
 import Alamofire
 
-extension ReceiptsTableViewController {
+extension ReceiptsViewController {
     // MARK: - TableViewDataSource delegate methods
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return receiptSummaries.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "ReceiptTableViewCell"
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ReceiptTableViewCell else {
@@ -40,7 +40,7 @@ extension ReceiptsTableViewController {
     }
 }
 
-extension ReceiptsTableViewController: ReceiptSummaryFetches {
+extension ReceiptsViewController: ReceiptSummaryFetches {
     
     // MARK: ReceiptSummaryFetches delegate methods
     func fetchReceiptSummaries() -> Void {
