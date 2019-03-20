@@ -77,16 +77,16 @@
                                 <rect key="frame" x="0.0" y="621" width="375" height="46"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K9Q-cN-Fea">
-                                        <rect key="frame" x="164" y="8" width="46" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <rect key="frame" x="145" y="8" width="84" height="30"/>
+                                        <state key="normal" title="Add Receipt"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="K9Q-cN-Fea" secondAttribute="trailing" constant="146" id="Naq-sZ-Qgg"/>
+                                    <constraint firstItem="K9Q-cN-Fea" firstAttribute="leading" secondItem="cFZ-zX-t5A" secondAttribute="leading" constant="145" id="QfJ-V1-PQw"/>
                                     <constraint firstItem="K9Q-cN-Fea" firstAttribute="top" secondItem="cFZ-zX-t5A" secondAttribute="top" constant="8" id="bAL-df-fQm"/>
                                     <constraint firstAttribute="bottom" secondItem="K9Q-cN-Fea" secondAttribute="bottom" constant="8" id="ekK-vE-cuf"/>
-                                    <constraint firstAttribute="trailing" secondItem="K9Q-cN-Fea" secondAttribute="trailing" constant="165" id="x9M-zg-ErN"/>
-                                    <constraint firstItem="K9Q-cN-Fea" firstAttribute="leading" secondItem="cFZ-zX-t5A" secondAttribute="leading" constant="164" id="zG8-UK-mNf"/>
                                 </constraints>
                             </view>
                         </subviews>
