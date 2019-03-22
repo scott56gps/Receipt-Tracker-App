@@ -9,7 +9,9 @@
 import UIKit
 
 class AddReceiptViewController: UIViewController {
-
+    // MARK: Outlets
+    @IBOutlet weak var receiptInputTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
