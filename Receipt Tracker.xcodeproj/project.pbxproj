@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		133868802242E6EE00A56567 /* ReceiptModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1338687F2242E6EE00A56567 /* ReceiptModel.swift */; };
+		13828F6822456B0A00A192B3 /* AddReceiptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13828F6722456B0A00A192B3 /* AddReceiptViewController.swift */; };
 		13BDFA67223B5E4D004CC51B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BDFA66223B5E4D004CC51B /* AppDelegate.swift */; };
 		13BDFA6C223B5E4D004CC51B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13BDFA6A223B5E4D004CC51B /* Main.storyboard */; };
 		13BDFA6E223B5E50004CC51B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13BDFA6D223B5E50004CC51B /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		1338687F2242E6EE00A56567 /* ReceiptModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptModel.swift; sourceTree = "<group>"; };
+		13828F6722456B0A00A192B3 /* AddReceiptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReceiptViewController.swift; sourceTree = "<group>"; };
 		13BDFA63223B5E4D004CC51B /* Receipt Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Receipt Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13BDFA66223B5E4D004CC51B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13BDFA6B223B5E4D004CC51B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				13BDFA8E223B6FFF004CC51B /* ReceiptsViewController.swift */,
 				13BDFA8C223B6275004CC51B /* ReceiptTableViewCell.swift */,
 				13BDFA6A223B5E4D004CC51B /* Main.storyboard */,
+				13828F6722456B0A00A192B3 /* AddReceiptViewController.swift */,
 				1338687F2242E6EE00A56567 /* ReceiptModel.swift */,
 				13BDFA90223BFA97004CC51B /* Item.swift */,
 				13BDFA92223BFDB7004CC51B /* Receipt.swift */,
@@ -321,6 +324,7 @@
 				13BDFA8D223B6275004CC51B /* ReceiptTableViewCell.swift in Sources */,
 				133868802242E6EE00A56567 /* ReceiptModel.swift in Sources */,
 				13BDFA95223C03C0004CC51B /* ReceiptSummary.swift in Sources */,
+				13828F6822456B0A00A192B3 /* AddReceiptViewController.swift in Sources */,
 				13BDFA67223B5E4D004CC51B /* AppDelegate.swift in Sources */,
 				13BDFA8F223B6FFF004CC51B /* ReceiptsViewController.swift in Sources */,
 			);

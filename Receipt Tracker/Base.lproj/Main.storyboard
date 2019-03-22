@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Receipts-->
+        <!--ViewReceipts-->
         <scene sceneID="Ltk-WW-7re">
             <objects>
-                <viewController id="ErO-Qb-dik" customClass="ReceiptsViewController" customModule="Receipt_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ErO-Qb-dik" userLabel="ViewReceipts" customClass="ReceiptsViewController" customModule="Receipt_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yfm-DM-ob0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -79,6 +79,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K9Q-cN-Fea">
                                         <rect key="frame" x="145" y="8" width="84" height="30"/>
                                         <state key="normal" title="Add Receipt"/>
+                                        <connections>
+                                            <segue destination="KED-va-bkE" kind="show" id="zc4-DE-dhu"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -114,16 +117,16 @@
             </objects>
             <point key="canvasLocation" x="1797.5999999999999" y="152.47376311844079"/>
         </scene>
-        <!--View Controller-->
+        <!--AddReceiptViewController-->
         <scene sceneID="7pQ-ZL-XA1">
             <objects>
-                <viewController id="KED-va-bkE" sceneMemberID="viewController">
+                <viewController id="KED-va-bkE" userLabel="AddReceiptViewController" customClass="AddReceiptViewController" customModule="Receipt_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4YX-dw-H7x">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Db5-ec-dgo">
-                                <rect key="frame" x="0.0" y="40" width="375" height="277.5"/>
+                                <rect key="frame" x="0.0" y="84" width="375" height="277.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vendor Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Og1-du-Xej">
                                         <rect key="frame" x="0.0" y="0.0" width="104.5" height="20.5"/>
