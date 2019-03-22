@@ -98,7 +98,6 @@
                             <constraint firstItem="pkX-2q-Pw5" firstAttribute="top" secondItem="Yfm-DM-ob0" secondAttribute="top" id="6hS-9A-C2k"/>
                             <constraint firstItem="cFZ-zX-t5A" firstAttribute="top" secondItem="pkX-2q-Pw5" secondAttribute="bottom" id="MIg-ge-e0n"/>
                             <constraint firstItem="pkX-2q-Pw5" firstAttribute="leading" secondItem="tTe-FB-uB3" secondAttribute="leading" id="UEI-Nl-kym"/>
-                            <constraint firstItem="cFZ-zX-t5A" firstAttribute="top" secondItem="pkX-2q-Pw5" secondAttribute="bottom" id="V6D-8B-MqA"/>
                             <constraint firstItem="cFZ-zX-t5A" firstAttribute="leading" secondItem="tTe-FB-uB3" secondAttribute="leading" id="cNs-gD-QV5"/>
                             <constraint firstItem="cFZ-zX-t5A" firstAttribute="bottom" secondItem="tTe-FB-uB3" secondAttribute="bottom" id="mPh-F3-Ftq"/>
                             <constraint firstItem="pkX-2q-Pw5" firstAttribute="trailing" secondItem="tTe-FB-uB3" secondAttribute="trailing" id="qDA-NW-xJe"/>
@@ -121,67 +120,62 @@
         <scene sceneID="7pQ-ZL-XA1">
             <objects>
                 <viewController id="KED-va-bkE" userLabel="AddReceiptViewController" customClass="AddReceiptViewController" customModule="Receipt_Tracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="4YX-dw-H7x">
+                    <view key="view" contentMode="scaleToFill" id="4YX-dw-H7x" userLabel="AddReceipt View">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Db5-ec-dgo">
-                                <rect key="frame" x="0.0" y="84" width="375" height="277.5"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NZD-pQ-jEy">
+                                <rect key="frame" x="0.0" y="64" width="375" height="553"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="L3Z-dA-0aa">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="L3Z-dA-0aa" id="eZX-EH-8Ff">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DIA-Q1-mWK">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="DIA-Q1-mWK" firstAttribute="leading" secondItem="eZX-EH-8Ff" secondAttribute="leading" id="Q81-Dq-jzn"/>
+                                                <constraint firstItem="DIA-Q1-mWK" firstAttribute="top" secondItem="eZX-EH-8Ff" secondAttribute="top" id="Qkf-Fh-Ogt"/>
+                                                <constraint firstAttribute="trailing" secondItem="DIA-Q1-mWK" secondAttribute="trailing" id="QsI-Qn-bMT"/>
+                                                <constraint firstAttribute="bottom" secondItem="DIA-Q1-mWK" secondAttribute="bottom" id="vgP-Er-gyi"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UMs-5n-Hz3">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vendor Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Og1-du-Xej">
-                                        <rect key="frame" x="0.0" y="0.0" width="104.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Vendor Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z5z-IO-PNK">
-                                        <rect key="frame" x="0.0" y="36.5" width="375" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XCU-Vj-7QI">
-                                        <rect key="frame" x="0.0" y="82.5" width="37.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Receipt Total" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y8m-kf-bGw">
-                                        <rect key="frame" x="0.0" y="119" width="375" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jj7-Nk-WS7">
-                                        <rect key="frame" x="0.0" y="165" width="36" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Receipt Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VvJ-12-5xA">
-                                        <rect key="frame" x="0.0" y="201.5" width="375" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fzG-pt-8no">
-                                        <rect key="frame" x="0.0" y="247.5" width="375" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QmO-vT-fCE">
+                                        <rect key="frame" x="145" y="11" width="84" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Add Receipt"/>
                                     </button>
                                 </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="VvJ-12-5xA" secondAttribute="trailing" id="SNa-nD-t7f"/>
-                                    <constraint firstAttribute="trailing" secondItem="z5z-IO-PNK" secondAttribute="trailing" id="gD6-hX-DTg"/>
-                                    <constraint firstAttribute="trailing" secondItem="fzG-pt-8no" secondAttribute="trailing" id="m4E-N2-XN1"/>
-                                    <constraint firstAttribute="trailing" secondItem="y8m-kf-bGw" secondAttribute="trailing" id="pRN-bc-siO"/>
+                                    <constraint firstAttribute="height" constant="50" id="2hK-Nn-PU5"/>
                                 </constraints>
-                            </stackView>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Db5-ec-dgo" firstAttribute="leading" secondItem="iHO-wf-R2n" secondAttribute="leading" id="FSA-FA-Pou"/>
-                            <constraint firstItem="iHO-wf-R2n" firstAttribute="trailing" secondItem="Db5-ec-dgo" secondAttribute="trailing" id="KPP-b6-zNb"/>
-                            <constraint firstItem="Db5-ec-dgo" firstAttribute="top" secondItem="iHO-wf-R2n" secondAttribute="top" constant="20" id="iNJ-mc-Jcw"/>
+                            <constraint firstItem="UMs-5n-Hz3" firstAttribute="trailing" secondItem="NZD-pQ-jEy" secondAttribute="trailing" id="BHq-ln-CtL"/>
+                            <constraint firstAttribute="trailing" secondItem="UMs-5n-Hz3" secondAttribute="trailing" id="BsI-kj-nuv"/>
+                            <constraint firstItem="UMs-5n-Hz3" firstAttribute="bottom" secondItem="iHO-wf-R2n" secondAttribute="bottom" id="SOx-Hh-w1d"/>
+                            <constraint firstItem="NZD-pQ-jEy" firstAttribute="top" secondItem="iHO-wf-R2n" secondAttribute="top" id="f1H-VN-EPa"/>
+                            <constraint firstItem="UMs-5n-Hz3" firstAttribute="leading" secondItem="NZD-pQ-jEy" secondAttribute="leading" id="g5t-HJ-Tlo"/>
+                            <constraint firstItem="UMs-5n-Hz3" firstAttribute="leading" secondItem="4YX-dw-H7x" secondAttribute="leading" id="oSY-64-wNo"/>
+                            <constraint firstItem="UMs-5n-Hz3" firstAttribute="top" secondItem="NZD-pQ-jEy" secondAttribute="bottom" id="zIy-9I-XTr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iHO-wf-R2n"/>
                     </view>
