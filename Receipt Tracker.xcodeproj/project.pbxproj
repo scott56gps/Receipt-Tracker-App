@@ -19,6 +19,7 @@
 		13BDFA91223BFA98004CC51B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BDFA90223BFA97004CC51B /* Item.swift */; };
 		13BDFA93223BFDB7004CC51B /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BDFA92223BFDB7004CC51B /* Receipt.swift */; };
 		13BDFA95223C03C0004CC51B /* ReceiptSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BDFA94223C03C0004CC51B /* ReceiptSummary.swift */; };
+		13EA76A1224950F500F2E5C4 /* ReceiptInputTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13EA76A0224950F500F2E5C4 /* ReceiptInputTableViewController.swift */; };
 		72E4952A1E8436BC6E106996 /* Pods_Receipt_TrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAD15099C58633C6AC9F152F /* Pods_Receipt_TrackerTests.framework */; };
 		C81BAEB2879BFDDBDE736E6A /* Pods_Receipt_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52193EB83E531D67894C22A /* Pods_Receipt_Tracker.framework */; };
 /* End PBXBuildFile section */
@@ -50,6 +51,7 @@
 		13BDFA90223BFA97004CC51B /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		13BDFA92223BFDB7004CC51B /* Receipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
 		13BDFA94223C03C0004CC51B /* ReceiptSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptSummary.swift; sourceTree = "<group>"; };
+		13EA76A0224950F500F2E5C4 /* ReceiptInputTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptInputTableViewController.swift; sourceTree = "<group>"; };
 		2F372030001F761F5866D19C /* Pods-Receipt Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Receipt Tracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Receipt Tracker/Pods-Receipt Tracker.debug.xcconfig"; sourceTree = "<group>"; };
 		77522AC33C17FB0D2C776021 /* Pods-Receipt Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Receipt Tracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-Receipt Tracker/Pods-Receipt Tracker.release.xcconfig"; sourceTree = "<group>"; };
 		7F21690FAEC6A327E08BACCC /* Pods-Receipt TrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Receipt TrackerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Receipt TrackerTests/Pods-Receipt TrackerTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				13BDFA8E223B6FFF004CC51B /* ReceiptsViewController.swift */,
 				13BDFA8C223B6275004CC51B /* ReceiptTableViewCell.swift */,
 				13828F6722456B0A00A192B3 /* AddReceiptViewController.swift */,
+				13EA76A0224950F500F2E5C4 /* ReceiptInputTableViewController.swift */,
 				13BDFA6A223B5E4D004CC51B /* Main.storyboard */,
 				1338687F2242E6EE00A56567 /* ReceiptModel.swift */,
 				13BDFA90223BFA97004CC51B /* Item.swift */,
@@ -319,6 +322,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13EA76A1224950F500F2E5C4 /* ReceiptInputTableViewController.swift in Sources */,
 				13BDFA93223BFDB7004CC51B /* Receipt.swift in Sources */,
 				13BDFA91223BFA98004CC51B /* Item.swift in Sources */,
 				13BDFA8D223B6275004CC51B /* ReceiptTableViewCell.swift in Sources */,
