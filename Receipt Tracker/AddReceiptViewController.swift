@@ -68,6 +68,9 @@ class AddReceiptViewController: UIViewController, ReceiptInputTableViewControlle
             }
         }
     }
+    @IBAction func cancel(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
     
     // MARK: Private Functions
     private func postReceipt(_ callback: @escaping(ReceiptSummary?) -> Void) {
