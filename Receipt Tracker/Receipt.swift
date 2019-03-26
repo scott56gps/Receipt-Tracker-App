@@ -9,11 +9,19 @@
 import Foundation
 
 class Receipt {
-    var id: Int
+    var id: Int?
     var vendorName: String
     var date: String
     var total: String
     var items: [Item]?
+    
+    init() {
+        self.id = nil
+        self.vendorName = ""
+        self.date = ""
+        self.total = ""
+        self.items = nil
+    }
     
     init?(id: Int, vendorName: String, date: String, total: String, items: [Item]?) {
         if (vendorName.isEmpty || date.isEmpty || total.isEmpty) {

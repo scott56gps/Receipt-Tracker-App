@@ -59,5 +59,15 @@ class ReceiptsViewController: UIViewController, UITableViewDelegate, UITableView
         
         return cell
     }
+    
+    // MARK: Actions
+    @IBAction func unwindToReceiptList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? AddReceiptViewController {
+            let receiptSummary = sourceViewController.receiptSummary
+            let newIndexPath = IndexPath(row: receiptSummaries.count, section: 0)
+            receiptSummaries.append(receiptSummary)
+            receiptsTableView.insertRows(at: [newIndexPath], with: .automatic)
+        }
+    }
 
 }

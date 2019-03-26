@@ -136,6 +136,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QmO-vT-fCE">
                                         <rect key="frame" x="283" y="8" width="84" height="30"/>
                                         <state key="normal" title="Add Receipt"/>
+                                        <connections>
+                                            <segue destination="9qe-Ip-m4i" kind="unwind" unwindAction="unwindToReceiptListWithSender:" id="Gy8-LZ-5qg"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4xX-1v-nvP">
                                         <rect key="frame" x="8" y="8" width="48" height="30"/>
@@ -172,6 +175,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Eg-z8-nyY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="9qe-Ip-m4i" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1797.5999999999999" y="830.73463268365822"/>
         </scene>

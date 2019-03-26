@@ -18,7 +18,8 @@ enum ReceiptVariable {
 
 class AddReceiptViewController: UIViewController, ReceiptInputTableViewControllerDelegate {
     // MARK: Properties
-    var receiptSummary: ReceiptSummary?
+    var receiptSummary = ReceiptSummary()
+    var receiptModel = ReceiptModel()
     
     // MARK: Outlets
     @IBOutlet weak var containerView: UIView!
@@ -29,19 +30,17 @@ class AddReceiptViewController: UIViewController, ReceiptInputTableViewControlle
         super.viewDidLoad()
 
         // Do any additional setup after loading the view
-        receiptSummary = ReceiptSummary()
     }
     
     // MARK: ReceiptInputTableViewControllerDelegate Methods
     func update(_ variable: ReceiptVariable, _ with: String) {
-        print(with)
         switch variable {
         case .vendorName:
-            receiptSummary?.vendorName = with
+            receiptSummary.vendorName = with
         case .total:
-            receiptSummary?.total = with
+            receiptSummary.total = with
         case .date:
-            receiptSummary?.total = with
+            receiptSummary.date = with
         default:
             break
         }
@@ -62,8 +61,26 @@ class AddReceiptViewController: UIViewController, ReceiptInputTableViewControlle
             return
         }
         
-        // Gather the input data
+        // Make a POST request to save the receipt
+        postReceipt { (_ receiptSummary: ReceiptSummary?) in
+            if let receiptSummary = receiptSummary {
+                self.receiptSummary = receiptSummary
+            }
+        }
+    }
+    
+    // MARK: Private Functions
+    private func postReceipt(_ callback: @escaping(ReceiptSummary?) -> Void) {
+        // Create parameters from Receipt Object
+        let parameters: [String: AnyObject] = [
+            "vendorName": receiptSummary.vendorName as AnyObject,
+            "date": receiptSummary.date as AnyObject,
+            "total": receiptSummary.total as AnyObject
+        ]
         
+        receiptModel.postReceipt(parameters) { (_ receiptSummary: ReceiptSummary?) in
+            callback(receiptSummary)
+        }
     }
 
 }

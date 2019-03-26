@@ -16,6 +16,7 @@ import Alamofire
 class ReceiptModel {
     // MARK: Properties
     var receiptsUrl = URL(string: "https://cs313-receipt-tracker.herokuapp.com/receipts")!
+    var receiptUrl = URL(string: "https://cs313-receipt-tracker.herokuapp.com/receipt")!
     
     
     // MARK: Public Methods
@@ -36,6 +37,22 @@ class ReceiptModel {
                 }
                 
                 callback(receiptSummaries)
+            }
+        }
+    }
+    
+    func postReceipt(_ parameters: [String: AnyObject], _ callback: @escaping (ReceiptSummary?) -> Void) {
+        Alamofire.request(receiptUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+            if let json = response.result.value {
+                let receiptDictionary = json as! Dictionary<String, Any>
+                
+                // Create Receipt Object from the returned receipt
+                if let receiptSummary = ReceiptSummary(receiptDictionary: receiptDictionary) {
+                    callback(receiptSummary)
+                } else {
+                    print("Did not instatiate Receipt for dictionary: \(receiptDictionary)")
+                    callback(nil)
+                }
             }
         }
     }

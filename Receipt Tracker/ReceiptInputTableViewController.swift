@@ -31,8 +31,10 @@ class ReceiptInputTableViewController: UITableViewController, UITextFieldDelegat
         vendorNameTextField.delegate = self
         totalTextField.delegate = self
         
-        let initialDate = dateToISOString(date: datePicker.date)
+        // Enable the Add Receipt Button only if there is text in vendorNameTextField
+        updateSaveButtonState()
         
+        let initialDate = dateToISOString(date: datePicker.date)
         delegate?.update(.date, initialDate)
     }
     
@@ -48,6 +50,11 @@ class ReceiptInputTableViewController: UITableViewController, UITextFieldDelegat
     }
     
     // UITextFieldDelegate Methods
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if let addReceiptViewController = self.parent as? AddReceiptViewController {
+            addReceiptViewController.addReceiptButton.isEnabled = false
+        }
+    }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // Hide the keyboard
         textField.resignFirstResponder()
@@ -55,6 +62,8 @@ class ReceiptInputTableViewController: UITableViewController, UITextFieldDelegat
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        updateSaveButtonState()
+        
         // Update the appropriate variable
         if (textField === vendorNameTextField) {
             // Update the vendorName
@@ -81,5 +90,13 @@ class ReceiptInputTableViewController: UITableViewController, UITextFieldDelegat
         let formatter = ISO8601DateFormatter()
         formatter.formatOptions = .withFullDate
         return formatter.string(from: date)
+    }
+    
+    private func updateSaveButtonState() {
+        // Disable the Add Receipt Button if the vendorName textField is empty
+        let text = vendorNameTextField.text ?? ""
+        if let addReceiptViewController = self.parent as? AddReceiptViewController {
+            addReceiptViewController.addReceiptButton.isEnabled = !text.isEmpty
+        }
     }
 }
