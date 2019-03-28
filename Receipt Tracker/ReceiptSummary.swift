@@ -42,7 +42,7 @@ class ReceiptSummary {
         guard var date = receiptDictionary["date"]! as? String else {
             return nil
         }
-        guard var total = receiptDictionary["total"] as? String else {
+        guard var total = receiptDictionary["total"]! as? String else {
             return nil
         }
         

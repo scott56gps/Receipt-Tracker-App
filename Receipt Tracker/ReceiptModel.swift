@@ -57,6 +57,23 @@ class ReceiptModel {
         }
     }
     
+    func getReceipt(receiptId: Int, _ callback: @escaping (Receipt?) -> Void) {
+        receiptUrl.appendPathComponent(String(receiptId))
+        Alamofire.request(receiptUrl, method: .get).responseJSON { response in
+            if let json = response.result.value {
+                let receiptDictionary = json as! Dictionary<String, Any>
+                
+                // Create Receipt Object from the returned receipt
+                if let receipt = Receipt(receiptDictionary: receiptDictionary) {
+                    callback(receipt)
+                } else {
+                    print("Did not instatiate Receipt for dictionary: \(receiptDictionary)")
+                    callback(nil)
+                }
+            }
+        }
+    }
+    
     func getSampleReceiptSummaries() -> [ReceiptSummary] {
         // Create Receipt Summary Objects
         guard let summary1 = ReceiptSummary(id: 1, vendorName: "Walmart", date: "01/26/19", total: "25.32") else {

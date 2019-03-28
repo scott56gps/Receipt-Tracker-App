@@ -51,7 +51,7 @@ class Receipt {
         guard var total = receiptDictionary["total"] as? String else {
             return nil
         }
-        let items = receiptDictionary["items"] as? [Item]
+        let itemsAny = receiptDictionary["items"] as? [Dictionary<String, Any>]
         
         // Format the values for display
         let startIndex = date.index(date.startIndex, offsetBy: 10)
@@ -60,7 +60,18 @@ class Receipt {
         total.insert("$", at: total.startIndex)
         
         self.id = id
-        if (items != nil) {
+        
+        if (itemsAny != nil) {
+            var items: [Item] = []
+            
+            for itemAny in itemsAny! {
+                // Create an Item object from this item dictionary
+                guard let item = Item(itemDictionary: itemAny) else {
+                    return nil
+                }
+                items.append(item)
+            }
+            
             self.items = items
         }
         self.vendorName = vendorName
