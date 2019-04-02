@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RAU-Yz-B5m">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RAU-Yz-B5m">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -80,7 +80,7 @@
                                         <rect key="frame" x="145" y="8" width="84" height="30"/>
                                         <state key="normal" title="Add Receipt"/>
                                         <connections>
-                                            <segue destination="KED-va-bkE" kind="presentation" id="zc4-DE-dhu"/>
+                                            <segue destination="KED-va-bkE" kind="presentation" identifier="addReceipt" id="zc4-DE-dhu"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -110,6 +110,7 @@
                         <outlet property="ReceiptsView" destination="Yfm-DM-ob0" id="gdD-lh-GtX"/>
                         <outlet property="buttonView" destination="cFZ-zX-t5A" id="k3y-59-qek"/>
                         <outlet property="receiptsTableView" destination="pkX-2q-Pw5" id="OvP-6X-qfQ"/>
+                        <segue destination="KED-va-bkE" kind="show" identifier="showReceiptDetail" id="Uou-NZ-Dcv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QYy-xG-1zv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -137,7 +138,7 @@
                                         <rect key="frame" x="283" y="8" width="84" height="30"/>
                                         <state key="normal" title="Add Receipt"/>
                                         <connections>
-                                            <segue destination="9qe-Ip-m4i" kind="unwind" unwindAction="unwindToReceiptListWithSender:" id="Gy8-LZ-5qg"/>
+                                            <segue destination="9qe-Ip-m4i" kind="unwind" identifier="AddReceiptUnwindSegue" unwindAction="unwindToReceiptListWithSender:" id="Gy8-LZ-5qg"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4xX-1v-nvP">
@@ -180,7 +181,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Eg-z8-nyY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="9qe-Ip-m4i" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1797.5999999999999" y="830.73463268365822"/>
+            <point key="canvasLocation" x="1798" y="984"/>
         </scene>
         <!--ReceiptInputTableViewController-->
         <scene sceneID="VpH-k9-4Hu">
@@ -252,7 +253,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Qew-Zj-DKJ">
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Qew-Zj-DKJ">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                                     <date key="date" timeIntervalSinceReferenceDate="574984790.21577895">
                                                         <!--2019-03-22 21:59:50 +0000-->
@@ -286,7 +287,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m3n-d9-tpv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2479" y="830"/>
+            <point key="canvasLocation" x="2558" y="984"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gYb-Yj-Nrd">
@@ -307,4 +308,7 @@
             <point key="canvasLocation" x="858.39999999999998" y="152.47376311844079"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="zc4-DE-dhu"/>
+    </inferredMetricsTieBreakers>
 </document>

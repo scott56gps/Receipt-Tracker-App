@@ -41,22 +41,6 @@ class ReceiptModel {
         }
     }
     
-    func postReceipt(_ parameters: [String: AnyObject], _ callback: @escaping (ReceiptSummary?) -> Void) {
-        Alamofire.request(receiptUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
-            if let json = response.result.value {
-                let receiptDictionary = json as! Dictionary<String, Any>
-                
-                // Create Receipt Object from the returned receipt
-                if let receiptSummary = ReceiptSummary(receiptDictionary: receiptDictionary) {
-                    callback(receiptSummary)
-                } else {
-                    print("Did not instatiate Receipt for dictionary: \(receiptDictionary)")
-                    callback(nil)
-                }
-            }
-        }
-    }
-    
     func getReceipt(receiptId: Int, _ callback: @escaping (Receipt?) -> Void) {
         receiptUrl.appendPathComponent(String(receiptId))
         Alamofire.request(receiptUrl, method: .get).responseJSON { response in
@@ -71,6 +55,59 @@ class ReceiptModel {
                     callback(nil)
                 }
             }
+        }
+    }
+    
+    func postReceipt(_ parameters: [String: AnyObject], _ callback: @escaping (Receipt?) -> Void) {
+        Alamofire.request(receiptUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+            if let json = response.result.value {
+                let receiptDictionary = json as! Dictionary<String, Any>
+                
+                // Create Receipt Object from the returned receipt
+                if let receipt = Receipt(receiptDictionary: receiptDictionary) {
+                    callback(receipt)
+                } else {
+                    print("Did not instantiate Receipt for dictionary: \(receiptDictionary)")
+                    callback(nil)
+                }
+            }
+        }
+    }
+    
+    func updateReceipt(_ parameters: [String: AnyObject], _ callback: @escaping (ReceiptSummary?) -> Void) {
+        Alamofire.request(receiptUrl, method: .put, parameters: parameters, encoding: JSONEncoding.default)
+            .validate()
+            .responseJSON() { response in
+                switch response.result {
+                case .success:
+                    print("Update Successful!")
+                    
+                    let receiptDictionary = response.result.value as! Dictionary<String, Any>
+                    
+                    if let receiptSummary = ReceiptSummary(receiptDictionary: receiptDictionary) {
+                        callback(receiptSummary)
+                    } else {
+                        print("Did not instantiate ReceiptSummary for dictionary: \(receiptDictionary)")
+                    }
+                case .failure(let error):
+                    print(error)
+                }
+        }
+    }
+    
+    func deleteReceipt(receiptId: Int, _ callback: @escaping (Bool) -> Void) {
+        receiptUrl.appendPathComponent(String(receiptId))
+        Alamofire.request(receiptUrl, method: .delete)
+            .validate()
+            .responseJSON { response in
+                switch response.result {
+                case .success:
+                    print("DELETE Successful")
+                    callback(true)
+                case .failure(let error):
+                    print(error)
+                    callback(false)
+                }
         }
     }
     

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os
 
 class ReceiptsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -60,14 +61,86 @@ class ReceiptsViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedReceiptSummary = receiptSummaries[indexPath.row]
+        
+        // Get the Receipt for this ReceiptSummary
+        model.getReceipt(receiptId: selectedReceiptSummary.id!) { (_ receipt: Receipt?) -> Void in
+            if let receipt = receipt {
+                self.performSegue(withIdentifier: "showReceiptDetail", sender: receipt)
+            }
+        }
+    }
+    
     // MARK: Actions
     @IBAction func unwindToReceiptList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? AddReceiptViewController {
-            let receiptSummary = sourceViewController.receiptSummary
-            let newIndexPath = IndexPath(row: receiptSummaries.count, section: 0)
-            receiptSummaries.append(receiptSummary)
-            receiptsTableView.insertRows(at: [newIndexPath], with: .automatic)
+            if let receipt = sourceViewController.receipt {
+                if let selectedIndexPath = receiptsTableView.indexPathForSelectedRow {
+                    // Update an existing meal
+                    let parameters: [String: AnyObject] = [
+                        "id": receipt.id as AnyObject,
+                        "vendorName": receipt.vendorName as AnyObject,
+                        "date": receipt.date as AnyObject,
+                        "total": receipt.total as AnyObject
+                    ]
+                    
+                    model.updateReceipt(parameters) { (_ receiptSummary: ReceiptSummary?) in
+                        if let receiptSummary = receiptSummary {
+                            self.receiptSummaries[selectedIndexPath.row] = receiptSummary
+                            self.receiptsTableView.reloadRows(at: [selectedIndexPath], with: .none)
+                        }
+                    }
+                } else {
+                    // Make a POST request to save the receipt
+                    // Create parameters from Receipt Object
+                    let parameters: [String: AnyObject] = [
+                        "vendorName": receipt.vendorName as AnyObject,
+                        "date": receipt.date as AnyObject,
+                        "total": receipt.total as AnyObject
+                    ]
+                    
+                    model.postReceipt(parameters) { (_ receipt: Receipt?) in
+                        if let receipt = receipt {
+                            // Create a receiptSummary from the receipt in the sourceViewController
+                            if let receiptSummary = ReceiptSummary(id: receipt.id!, vendorName: receipt.vendorName, date: receipt.date, total: receipt.total) {
+                                // Insert a new Receipt Summary into the table
+                                let newIndexPath = IndexPath(row: self.receiptSummaries.count, section: 0)
+                                self.receiptSummaries.append(receiptSummary)
+                                self.receiptsTableView.insertRows(at: [newIndexPath], with: .automatic)
+                            } else {
+                                os_log("Did not instatiate new ReceiptSummary for receipt", log: OSLog.default, type: .debug)
+                            }
+                        }
+                    }
+                }
+            } else {
+                os_log("Source View Controller Receipt was nil", log: OSLog.default, type: .debug)
+            }
         }
+    }
+    
+    // MARK: Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        switch (segue.identifier ?? "") {
+        case "addReceipt":
+            os_log("Opening Add Receipt View", log: OSLog.default, type: .debug)
+        case "showReceiptDetail":
+            guard let receiptDetailViewController = segue.destination as? AddReceiptViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            
+            guard let receipt = sender as? Receipt else {
+                fatalError("Unexpected Sender type: \(sender)")
+            }
+            
+            receiptDetailViewController.receipt = receipt
+        default:
+            fatalError("Unexpected Segue Identifier: \(segue.identifier)")
+        }
+        
     }
 
 }

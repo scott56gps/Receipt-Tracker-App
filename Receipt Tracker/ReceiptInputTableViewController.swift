@@ -18,8 +18,8 @@ protocol ReceiptInputTableViewControllerDelegate: AnyObject {
 
 class ReceiptInputTableViewController: UITableViewController, UITextFieldDelegate {
     // MARK: Properties
+//    var receipt = Receipt()
     weak var delegate: ReceiptInputTableViewControllerDelegate?
-    var editedSectionNumber: Int?
     
     // MARK: Outlets
     @IBOutlet weak var vendorNameTextField: UITextField!
@@ -31,11 +31,9 @@ class ReceiptInputTableViewController: UITableViewController, UITextFieldDelegat
         vendorNameTextField.delegate = self
         totalTextField.delegate = self
         
-        // Enable the Add Receipt Button only if there is text in vendorNameTextField
-        updateSaveButtonState()
-        
-        let initialDate = dateToISOString(date: datePicker.date)
-        delegate?.update(.date, initialDate)
+        // Set initial date to the receipt, if there is any
+//        let initialDate = dateToISOString(date: datePicker.date)
+//        delegate?.update(.date, initialDate)
     }
     
     // UITableViewDelegate Methods
@@ -62,7 +60,9 @@ class ReceiptInputTableViewController: UITableViewController, UITextFieldDelegat
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        updateSaveButtonState()
+        if let addReceiptViewController = self.parent as? AddReceiptViewController {
+            addReceiptViewController.updateSaveButtonState()
+        }
         
         // Update the appropriate variable
         if (textField === vendorNameTextField) {
@@ -87,16 +87,8 @@ class ReceiptInputTableViewController: UITableViewController, UITextFieldDelegat
     
     // MARK: Private Functions
     private func dateToISOString(date: Date) -> String {
-        let formatter = ISO8601DateFormatter()
-        formatter.formatOptions = .withFullDate
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
         return formatter.string(from: date)
-    }
-    
-    private func updateSaveButtonState() {
-        // Disable the Add Receipt Button if the vendorName textField is empty
-        let text = vendorNameTextField.text ?? ""
-        if let addReceiptViewController = self.parent as? AddReceiptViewController {
-            addReceiptViewController.addReceiptButton.isEnabled = !text.isEmpty
-        }
     }
 }
