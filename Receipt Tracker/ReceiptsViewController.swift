@@ -56,7 +56,10 @@ class ReceiptsViewController: UIViewController, UITableViewDelegate, UITableView
         // Map the ReceiptSummary Data Object onto the cell
         cell.name.text = receiptSummary.vendorName
         cell.date.text = receiptSummary.date
-        cell.total.text = String(receiptSummary.total)
+        
+        // Format the total for money display
+        receiptSummary.total.insert("$", at: receiptSummary.total.startIndex)
+        cell.total.text = receiptSummary.total
         
         return cell
     }
@@ -79,17 +82,19 @@ class ReceiptsViewController: UIViewController, UITableViewDelegate, UITableView
                 if let selectedIndexPath = receiptsTableView.indexPathForSelectedRow {
                     // Update an existing meal
                     let parameters: [String: AnyObject] = [
-                        "id": receipt.id as AnyObject,
+                        "id": receipt.id! as AnyObject,
                         "vendorName": receipt.vendorName as AnyObject,
                         "date": receipt.date as AnyObject,
                         "total": receipt.total as AnyObject
                     ]
                     
-                    model.updateReceipt(parameters) { (_ receiptSummary: ReceiptSummary?) in
+                    model.updateReceipt(receipt.id!, parameters) { (_ receiptSummary: ReceiptSummary?) in
                         if let receiptSummary = receiptSummary {
                             self.receiptSummaries[selectedIndexPath.row] = receiptSummary
                             self.receiptsTableView.reloadRows(at: [selectedIndexPath], with: .none)
                         }
+                        
+                        self.receiptsTableView.deselectRow(at: selectedIndexPath, animated: true)
                     }
                 } else {
                     // Make a POST request to save the receipt
@@ -135,6 +140,9 @@ class ReceiptsViewController: UIViewController, UITableViewDelegate, UITableView
             guard let receipt = sender as? Receipt else {
                 fatalError("Unexpected Sender type: \(sender)")
             }
+            
+            // Remove the '$' character from the total
+            receipt.total = String(receipt.total.suffix(receipt.total.count - 1))
             
             receiptDetailViewController.receipt = receipt
         default:

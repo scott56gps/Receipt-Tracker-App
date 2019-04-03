@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "closure #1 in ReceiptModel.getReceipt(receiptId:_:):ReceiptModel.swift">
+      </ContextState>
+      <ContextState
+         contextName = "ReceiptModel.getReceipt(receiptId:_:):ReceiptModel.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "receiptUrlWithId.abosoluteString">
+            </PersistentString>
+            <PersistentString
+               value = "">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Receipt.init(receiptDictionary:):Receipt.swift">
+      </ContextState>
+      <ContextState
+         contextName = "AddReceiptViewController.viewWillAppear(_:):AddReceiptViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "Item.init(itemDictionary:):Item.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Float(amount)">
+            </PersistentString>
+            <PersistentString
+               value = "itemDictionary[&quot;amount&quot;] as! String">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ReceiptSummary.init(receiptDictionary:):ReceiptSummary.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "let dateFormatter = ISO8601DateFormatter()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in ReceiptsTableViewController.fetchReceipts():ReceiptsTableViewControllerExtensions.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "json as! [String: Any]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AddReceiptViewController.ISOStringToDate(isoString:):AddReceiptViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "let dateFormatter = DateFormatter()">
+            </PersistentString>
+            <PersistentString
+               value = "formatter.date(from: &quot;2019-02-28&quot;)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

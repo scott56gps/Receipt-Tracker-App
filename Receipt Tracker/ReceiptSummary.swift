@@ -42,16 +42,13 @@ class ReceiptSummary {
         guard var date = receiptDictionary["date"]! as? String else {
             return nil
         }
-        guard var total = receiptDictionary["total"]! as? String else {
+        guard let total = receiptDictionary["total"]! as? String else {
             return nil
         }
         
         // Format the values for display
         let startIndex = date.index(date.startIndex, offsetBy: 10)
         date.removeSubrange(startIndex...)
-        
-        total.insert("$", at: total.startIndex)
-        
         
         self.id = id
         self.vendorName = vendorName

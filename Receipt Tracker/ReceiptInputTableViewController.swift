@@ -13,12 +13,12 @@ import UIKit
  * AnyObject adopting this protocol must implement the following functionality
  */
 protocol ReceiptInputTableViewControllerDelegate: AnyObject {
-    func update(_ variable: ReceiptVariable, _ with: String)
+    func updateTextValue(_ variable: ReceiptVariable, _ with: String)
+    func updateDateValue(_ date: Date)
 }
 
 class ReceiptInputTableViewController: UITableViewController, UITextFieldDelegate {
     // MARK: Properties
-//    var receipt = Receipt()
     weak var delegate: ReceiptInputTableViewControllerDelegate?
     
     // MARK: Outlets
@@ -30,10 +30,6 @@ class ReceiptInputTableViewController: UITableViewController, UITextFieldDelegat
         super.viewDidLoad()
         vendorNameTextField.delegate = self
         totalTextField.delegate = self
-        
-        // Set initial date to the receipt, if there is any
-//        let initialDate = dateToISOString(date: datePicker.date)
-//        delegate?.update(.date, initialDate)
     }
     
     // UITableViewDelegate Methods
@@ -68,27 +64,18 @@ class ReceiptInputTableViewController: UITableViewController, UITextFieldDelegat
         if (textField === vendorNameTextField) {
             // Update the vendorName
             if let vendorName = textField.text {
-                delegate?.update(.vendorName, vendorName)
+                delegate?.updateTextValue(.vendorName, vendorName)
             }
         } else if (textField === totalTextField) {
             // Update the total
             if let total = textField.text {
-                delegate?.update(.total, total)
+                delegate?.updateTextValue(.total, total)
             }
         }
     }
     
     // MARK: Actions
     @IBAction func dateWasPicked(_ sender: UIDatePicker) {
-        let dateString = dateToISOString(date: sender.date)
-
-        delegate?.update(.date, dateString)
-    }
-    
-    // MARK: Private Functions
-    private func dateToISOString(date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        return formatter.string(from: date)
+        delegate?.updateDateValue(sender.date)
     }
 }

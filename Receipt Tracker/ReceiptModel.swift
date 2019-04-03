@@ -18,7 +18,6 @@ class ReceiptModel {
     var receiptsUrl = URL(string: "https://cs313-receipt-tracker.herokuapp.com/receipts")!
     var receiptUrl = URL(string: "https://cs313-receipt-tracker.herokuapp.com/receipt")!
     
-    
     // MARK: Public Methods
     func getReceiptSummaries(_ callback: @escaping ([ReceiptSummary]) -> Void) {
         Alamofire.request(receiptsUrl).responseJSON { response in
@@ -42,8 +41,8 @@ class ReceiptModel {
     }
     
     func getReceipt(receiptId: Int, _ callback: @escaping (Receipt?) -> Void) {
-        receiptUrl.appendPathComponent(String(receiptId))
-        Alamofire.request(receiptUrl, method: .get).responseJSON { response in
+        let receiptUrlWithId = receiptUrl.appendingPathComponent(String(receiptId))
+        Alamofire.request(receiptUrlWithId, method: .get).responseJSON { response in
             if let json = response.result.value {
                 let receiptDictionary = json as! Dictionary<String, Any>
                 
@@ -74,8 +73,9 @@ class ReceiptModel {
         }
     }
     
-    func updateReceipt(_ parameters: [String: AnyObject], _ callback: @escaping (ReceiptSummary?) -> Void) {
-        Alamofire.request(receiptUrl, method: .put, parameters: parameters, encoding: JSONEncoding.default)
+    func updateReceipt(_ receiptId: Int, _ parameters: [String: AnyObject], _ callback: @escaping (ReceiptSummary?) -> Void) {
+        let receiptUrlWithId = receiptUrl.appendingPathComponent(String(receiptId))
+        Alamofire.request(receiptUrlWithId, method: .put, parameters: parameters, encoding: JSONEncoding.default)
             .validate()
             .responseJSON() { response in
                 switch response.result {
@@ -96,8 +96,8 @@ class ReceiptModel {
     }
     
     func deleteReceipt(receiptId: Int, _ callback: @escaping (Bool) -> Void) {
-        receiptUrl.appendPathComponent(String(receiptId))
-        Alamofire.request(receiptUrl, method: .delete)
+        let receiptUrlWithId = URL(string: String(receiptId), relativeTo: receiptUrl)!
+        Alamofire.request(receiptUrlWithId, method: .delete)
             .validate()
             .responseJSON { response in
                 switch response.result {
