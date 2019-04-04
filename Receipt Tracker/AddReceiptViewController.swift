@@ -35,6 +35,8 @@ class AddReceiptViewController: UIViewController, ReceiptInputTableViewControlle
         
         // Populate the UI with the values from the receipt, if any exists
         if let receipt = self.receipt {
+            navigationItem.title = receipt.vendorName
+            navigationItem.hidesBackButton = true
             addReceiptButton.setTitle("Update Receipt", for: .normal)
             if (receiptInputTableViewController != nil) {
                 receiptInputTableViewController?.vendorNameTextField.text = receipt.vendorName
@@ -64,6 +66,7 @@ class AddReceiptViewController: UIViewController, ReceiptInputTableViewControlle
         switch variable {
         case .vendorName:
             receipt?.vendorName = with
+            navigationItem.title = with
         case .total:
             receipt?.total = with
         default:

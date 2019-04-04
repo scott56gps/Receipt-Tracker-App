@@ -23,6 +23,9 @@ class ReceiptsViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Provide an edit button at the top left of the navController
+        navigationItem.leftBarButtonItem = editButtonItem
+        
         // Set the Delegates
         self.receiptsTableView.delegate = self
         self.receiptsTableView.dataSource = self
@@ -43,6 +46,7 @@ class ReceiptsViewController: UIViewController, UITableViewDelegate, UITableView
         return receiptSummaries.count
     }
     
+    // MARK: - TableViewDelegate methods
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "ReceiptTableViewCell"
         
@@ -73,6 +77,22 @@ class ReceiptsViewController: UIViewController, UITableViewDelegate, UITableView
                 self.performSegue(withIdentifier: "showReceiptDetail", sender: receipt)
             }
         }
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            receiptSummaries.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: true)
+        receiptsTableView.setEditing(editing, animated: true)
     }
     
     // MARK: Actions
