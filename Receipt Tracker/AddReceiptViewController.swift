@@ -97,7 +97,14 @@ class AddReceiptViewController: UIViewController, ReceiptInputTableViewControlle
         }
     }
     @IBAction func cancel(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+        let isPresentingInAddReceiptMode = self.presentingViewController is UINavigationController
+        if isPresentingInAddReceiptMode {
+            dismiss(animated: true, completion: nil)
+        } else if let owningNavigationController = self.navigationController {
+            owningNavigationController.popViewController(animated: true)
+        } else {
+            fatalError("ReceiptViewController is not inside a navigation controller")
+        }
     }
     
     // MARK: Public Functions
