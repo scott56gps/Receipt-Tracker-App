@@ -75,6 +75,7 @@ class ReceiptsViewController: UIViewController, UITableViewDelegate, UITableView
         model.getReceipt(receiptId: selectedReceiptSummary.id!) { (_ receipt: Receipt?) -> Void in
             if let receipt = receipt {
                 self.performSegue(withIdentifier: "showReceiptDetail", sender: receipt)
+                tableView.deselectRow(at: indexPath, animated: true)
             }
         }
     }
