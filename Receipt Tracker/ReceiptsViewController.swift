@@ -37,6 +37,14 @@ class ReceiptsViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if let selectedIndexPath = self.receiptsTableView.indexPathForSelectedRow {
+            self.receiptsTableView.deselectRow(at: selectedIndexPath, animated: true)
+        }
+    }
+    
     // MARK: - TableViewDataSource delegate methods
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -75,15 +83,25 @@ class ReceiptsViewController: UIViewController, UITableViewDelegate, UITableView
         model.getReceipt(receiptId: selectedReceiptSummary.id!) { (_ receipt: Receipt?) -> Void in
             if let receipt = receipt {
                 self.performSegue(withIdentifier: "showReceiptDetail", sender: receipt)
-                tableView.deselectRow(at: indexPath, animated: true)
             }
         }
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == .delete) {
-            receiptSummaries.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            // Get the receiptSummary for this row
+            let receiptSummary = receiptSummaries[indexPath.row]
+            
+            // Delete this receiptSummary
+            model.deleteReceipt(receiptId: receiptSummary.id!) { (_ success: Bool) -> Void in
+                if (success) {
+                    // Remove the receipt from the UI
+                    self.receiptSummaries.remove(at: indexPath.row)
+                    tableView.deleteRows(at: [indexPath], with: .fade)
+                } else {
+                    os_log("Delete on server unsuccessful", log: OSLog.default, type: .debug)
+                }
+            }
         }
     }
     
@@ -114,8 +132,6 @@ class ReceiptsViewController: UIViewController, UITableViewDelegate, UITableView
                             self.receiptSummaries[selectedIndexPath.row] = receiptSummary
                             self.receiptsTableView.reloadRows(at: [selectedIndexPath], with: .none)
                         }
-                        
-                        self.receiptsTableView.deselectRow(at: selectedIndexPath, animated: true)
                     }
                 } else {
                     // Make a POST request to save the receipt
@@ -161,9 +177,6 @@ class ReceiptsViewController: UIViewController, UITableViewDelegate, UITableView
             guard let receipt = sender as? Receipt else {
                 fatalError("Unexpected Sender type: \(sender)")
             }
-            
-            // Remove the '$' character from the total
-            receipt.total = String(receipt.total.suffix(receipt.total.count - 1))
             
             receiptDetailViewController.receipt = receipt
         default:

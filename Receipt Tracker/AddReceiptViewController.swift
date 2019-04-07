@@ -118,18 +118,18 @@ class AddReceiptViewController: UIViewController, ReceiptInputTableViewControlle
     }
     
     // MARK: Private Functions
-    private func postReceipt(_ callback: @escaping(Receipt?) -> Void) {
-        // Create parameters from Receipt Object
-        let parameters: [String: AnyObject] = [
-            "vendorName": receipt!.vendorName as AnyObject,
-            "date": receipt!.date as AnyObject,
-            "total": receipt!.total as AnyObject
-        ]
-        
-        receiptModel.postReceipt(parameters) { (_ receipt: Receipt?) in
-            callback(receipt)
-        }
-    }
+//    private func postReceipt(_ callback: @escaping(Receipt?) -> Void) {
+//        // Create parameters from Receipt Object
+//        let parameters: [String: AnyObject] = [
+//            "vendorName": receipt!.vendorName as AnyObject,
+//            "date": receipt!.date as AnyObject,
+//            "total": receipt!.total as AnyObject
+//        ]
+//        
+//        receiptModel.postReceipt(parameters) { (_ receipt: Receipt?) in
+//            callback(receipt)
+//        }
+//    }
     
     private func ISOStringToDate(isoString: String) -> Date? {
         let formatter = DateFormatter()

@@ -96,13 +96,12 @@ class ReceiptModel {
     }
     
     func deleteReceipt(receiptId: Int, _ callback: @escaping (Bool) -> Void) {
-        let receiptUrlWithId = URL(string: String(receiptId), relativeTo: receiptUrl)!
+        let receiptUrlWithId = receiptUrl.appendingPathComponent(String(receiptId))
         Alamofire.request(receiptUrlWithId, method: .delete)
             .validate()
             .responseJSON { response in
                 switch response.result {
                 case .success:
-                    print("DELETE Successful")
                     callback(true)
                 case .failure(let error):
                     print(error)
