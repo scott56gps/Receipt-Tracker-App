@@ -33,6 +33,8 @@ class AddReceiptViewController: UIViewController, ReceiptInputTableViewControlle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
+        addReceiptButton.isEnabled = false
+        
         // Populate the UI with the values from the receipt, if any exists
         if let receipt = self.receipt {
             navigationItem.title = receipt.vendorName
@@ -58,7 +60,7 @@ class AddReceiptViewController: UIViewController, ReceiptInputTableViewControlle
         }
         
         // Enable the Add Receipt Button only if there is text in vendorNameTextField
-        updateSaveButtonState()
+//        updateSaveButtonState()
     }
     
     // MARK: ReceiptInputTableViewControllerDelegate Methods
@@ -67,8 +69,10 @@ class AddReceiptViewController: UIViewController, ReceiptInputTableViewControlle
         case .vendorName:
             receipt?.vendorName = with
             navigationItem.title = with
+            addReceiptButton.isEnabled = true
         case .total:
             receipt?.total = with
+            addReceiptButton.isEnabled = true
         default:
             break
         }
@@ -77,6 +81,7 @@ class AddReceiptViewController: UIViewController, ReceiptInputTableViewControlle
     func updateDateValue(_ date: Date) {
         let dateString = dateToISOString(date: date)
         receipt?.date = dateString
+        addReceiptButton.isEnabled = true
     }
     
     // MARK: - Navigation
@@ -118,19 +123,6 @@ class AddReceiptViewController: UIViewController, ReceiptInputTableViewControlle
     }
     
     // MARK: Private Functions
-//    private func postReceipt(_ callback: @escaping(Receipt?) -> Void) {
-//        // Create parameters from Receipt Object
-//        let parameters: [String: AnyObject] = [
-//            "vendorName": receipt!.vendorName as AnyObject,
-//            "date": receipt!.date as AnyObject,
-//            "total": receipt!.total as AnyObject
-//        ]
-//        
-//        receiptModel.postReceipt(parameters) { (_ receipt: Receipt?) in
-//            callback(receipt)
-//        }
-//    }
-    
     private func ISOStringToDate(isoString: String) -> Date? {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
